@@ -74,6 +74,9 @@
         mediaElementInfo.debugInfo = str;
       }
 
+      // NOTE: it seems that mozRequestDebugInfo and mozDebugReaderData
+      // are not currently available from a content script (they are probably
+      // available only from chrome-privileged code).
       if ("mozRequestDebugInfo" in v) {
         const waitForMediaElementInfo = v.mozRequestDebugInfo().then(debugInfo => {
           mediaElementInfo.debugInfo = debugInfo;
